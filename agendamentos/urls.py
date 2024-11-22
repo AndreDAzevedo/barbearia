@@ -1,0 +1,26 @@
+from django.urls import path
+from django.contrib.auth.views import LoginView, LogoutView
+from . import views
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.urls import reverse
+from .views import custom_logout
+
+
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('register/', views.register, name='register'),
+    path('fazer_reserva/', views.fazer_reserva, name='fazer_reserva'),
+    path('minhas_reservas/', views.minhas_reservas, name='minhas_reservas'),
+    path('editar_reserva_cliente/<int:reserva_id>/', views.editar_reserva, name='editar_reserva'),  # Para clientes
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', custom_logout, name='logout'),
+    path('login_barbeiro/', views.barbeiro_login, name='barbeiro_login'),
+    path('area_barbeiro/', views.area_barbeiro, name='area_barbeiro'),
+    path('horarios_marcados/', views.horarios_marcados, name='horarios_marcados'),
+    path('editar_reserva_barbeiro/<int:reserva_id>/', views.editar_reserva_barbeiro, name='editar_reserva_barbeiro'),  # Para barbeiros
+    path('carregar_datas/', views.carregar_datas, name='carregar_datas'),
+    path('cancelar_reserva_barbeiro/<int:reserva_id>/', views.cancelar_reserva_barbeiro, name='cancelar_reserva_barbeiro'),
+]
+

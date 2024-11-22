@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelar Reserva</title>
+</head>
+<body>
+    <h1>Cancelar Reserva</h1>
+    <p>Você tem certeza que deseja cancelar a reserva?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+    </form>
+    <a href="{% url 'horarios_marcados' %}">Voltar</a>
+</body>
+</html>

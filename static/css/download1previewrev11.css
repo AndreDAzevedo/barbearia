@@ -1,0 +1,16 @@
+.download1previewrev11-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.download1previewrev11-dummy-container {
+  width: 100%;
+  height: 900px;
+}
+.download1previewrev11-download1previewrev11 {
+  width: 364px;
+  height: 275px;
+}

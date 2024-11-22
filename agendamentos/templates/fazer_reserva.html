@@ -1,0 +1,257 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Barbearia</title>
+    <link rel="stylesheet" href="{% static 'tela-login/css2/style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/background2.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .controls button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+        }
+
+        .day {
+            padding: 10px;
+            text-align: center;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .day.reserved {
+            background-color: #ff6b6b;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .day:hover:not(.reserved) {
+            background-color: #ffa502;
+            color: white;
+        }
+
+        .selected {
+            background-color: #007bff !important;
+            color: white;
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        .form select, .form input, .form button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .form button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background-color: #0056b3;
+        }
+
+        .error-messages {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{% static 'images/logo.png' %}" alt="Logo Barbearia">
+            <h1>Agendamento</h1>
+        </div>
+        <div class="controls">
+            <button id="prev-month">&lt; Mês Anterior</button>
+            <h2 id="current-month-year"></h2>
+            <button id="next-month">Próximo Mês &gt;</button>
+        </div>
+        <div class="calendar">
+            <!-- Dias do calendário gerados dinamicamente -->
+        </div>
+        <form method="post" class="form" id="reservation-form">
+            {% csrf_token %}
+            <!-- Exibe mensagens de erro, se existirem -->
+            {% if form.errors %}
+                <div class="error-messages">
+                    <ul>
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <input type="hidden" id="selected-date" name="data">
+            <label for="service">Selecione o Serviço:</label>
+            <select id="service" name="servico" required>
+                <option value="" disabled selected>Escolha um serviço</option>
+                <option value="Cabelo">Cabelo</option>
+                <option value="Barba">Barba</option>
+                <option value="Cabelo e Barba">Cabelo e Barba</option>
+            </select>
+            <label for="time">Selecione o Horário:</label>
+            <select id="time" name="horario" required>
+                <option value="" disabled selected>Escolha um horário</option>
+            </select>
+            <button type="submit">Confirmar Reserva</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const calendar = document.querySelector(".calendar");
+            const currentMonthYear = document.getElementById("current-month-year");
+            const prevMonth = document.getElementById("prev-month");
+            const nextMonth = document.getElementById("next-month");
+            const selectedDateInput = document.getElementById("selected-date");
+            const timeSelect = document.getElementById("time");
+            const form = document.getElementById("reservation-form");
+
+            let currentDate = new Date();
+
+            const reservas = {
+                "2024-11-21": ["10:00", "14:00"],
+                "2024-11-22": ["09:00", "16:00"]
+            };
+
+            const availableTimes = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00","17:00","18:00"];
+
+            const updateCalendar = () => {
+                calendar.innerHTML = "";
+
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+                const firstDay = new Date(year, month, 1);
+                const lastDay = new Date(year, month + 1, 0);
+
+                currentMonthYear.textContent = `${firstDay.toLocaleString('pt-BR', { month: 'long' })} ${year}`;
+
+                for (let day = 1; day <= lastDay.getDate(); day++) {
+                    const date = new Date(year, month, day);
+                    const dateStr = date.toISOString().split("T")[0];
+                    const isReserved = reservas[dateStr] && reservas[dateStr].length === availableTimes.length;
+
+                    const dayDiv = document.createElement("div");
+                    dayDiv.className = "day";
+                    if (isReserved) {
+                        dayDiv.classList.add("reserved");
+                    }
+                    dayDiv.textContent = day;
+                    dayDiv.dataset.date = dateStr;
+
+                    if (!isReserved) {
+                        dayDiv.addEventListener("click", () => {
+                            document.querySelectorAll(".day").forEach(d => d.classList.remove("selected"));
+                            dayDiv.classList.add("selected");
+                            selectedDateInput.value = dateStr;
+                            updateTimes(dateStr);
+                        });
+                    }
+
+                    calendar.appendChild(dayDiv);
+                }
+            };
+
+            const updateTimes = (selectedDate) => {
+                timeSelect.innerHTML = "<option value='' disabled selected>Escolha um horário</option>";
+
+                if (reservas[selectedDate]) {
+                    const reservedTimes = reservas[selectedDate];
+                    availableTimes.forEach(time => {
+                        if (!reservedTimes.includes(time)) {
+                            const option = document.createElement("option");
+                            option.value = time;
+                            option.textContent = time;
+                            timeSelect.appendChild(option);
+                        }
+                    });
+                } else {
+                    availableTimes.forEach(time => {
+                        const option = document.createElement("option");
+                        option.value = time;
+                        option.textContent = time;
+                        timeSelect.appendChild(option);
+                    });
+                }
+            };
+
+            prevMonth.addEventListener("click", () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                updateCalendar();
+            });
+
+            nextMonth.addEventListener("click", () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                updateCalendar();
+            });
+
+            updateCalendar();
+        });
+    </script>
+</body>
+</html>

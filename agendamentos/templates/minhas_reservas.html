@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Reservas</title>
+    <!-- Estilos -->
+    <style>
+        body {
+            background-image: url("{% static 'images/background2.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #555;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        li form, li a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #a71d2a;
+        }
+        a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Minhas Reservas</h1>
+        {% if reservas %}
+            <ul>
+                {% for reserva in reservas %}
+                    <li>
+                        <strong>Serviço:</strong> {{ reserva.servico }} <br>
+                        <strong>Data:</strong> {{ reserva.data }} <br>
+                        <strong>Horário:</strong> {{ reserva.horario }} <br>
+                        <form method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="reserva_id" value="{{ reserva.id }}">
+                            <button type="submit" name="cancelar_reserva">Cancelar</button>
+                        </form>
+                        <a href="{% url 'editar_reserva' reserva.id %}">Editar</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="text-align:center; color: #ffc107;">Você ainda não tem reservas.</p>
+        {% endif %}
+        <div class="footer">
+            <a href="{% url 'home' %}">Voltar para a página inicial</a>
+        </div>
+    </div>
+</body>
+</html>

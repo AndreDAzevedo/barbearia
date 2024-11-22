@@ -1,0 +1,138 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar-se</title>
+    <style>
+        body {
+            background-image: url("{% static 'images/background2.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .register-container {
+            max-width: 450px;
+            margin: 60px auto;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .logo-img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .register-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .register-button:hover {
+            background-color: #0056b3;
+        }
+        .form-instructions {
+            text-align: left;
+            font-size: 14px;
+            color: #444;
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        .footer-links {
+            margin-top: 20px;
+        }
+        .footer-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .register-footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img">
+        </div>
+        <h1>Crie sua conta</h1>
+
+        <!-- Formulário de Registro -->
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password1">Senha:</label>
+                <input type="password" id="password1" name="password1" required>
+            </div>
+            <div class="form-group">
+                <label for="password2">Confirmação de senha:</label>
+                <input type="password" id="password2" name="password2" required>
+            </div>
+            <button type="submit" class="register-button">Registrar</button>
+        </form>
+
+        <!-- Instruções -->
+        <div class="form-instructions">
+            <p><strong>Informações importantes:</strong></p>
+            <ul>
+                <li>O nome de usuário pode conter letras, números e símbolos como @/./+/-/_.</li>
+                <li>A senha deve ter no mínimo 8 caracteres e não pode ser semelhante às suas informações pessoais.</li>
+                <li>Certifique-se de que a senha é fácil de lembrar, mas segura.</li>
+            </ul>
+        </div>
+
+        <!-- Links -->
+        <div class="footer-links">
+            <a href="{% url 'login' %}">Já tem uma conta? Faça login</a><br>
+            <a href="{% url 'home' %}">Voltar para a página inicial</a>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="register-footer">
+            &copy; 2024 Barbearia. Todos os direitos reservados.
+        </footer>
+    </div>
+</body>
+</html>
