@@ -119,3 +119,11 @@ def clean(self):
 
     def __str__(self):
         return f"{self.usuario.username} - {self.servico} - {self.data} {self.horario}"
+
+from django.contrib import messages
+from django.shortcuts import render
+
+def home(request):
+    if not request.user.is_authenticated:
+        messages.info(request, "Sua sessão expirou. Faça login novamente.")
+        return render(request, 'home.html')

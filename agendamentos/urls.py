@@ -5,6 +5,7 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.urls import reverse
 from .views import custom_logout
+from .views import CustomLoginView
 
 
 
@@ -21,6 +22,11 @@ urlpatterns = [
     path('horarios_marcados/', views.horarios_marcados, name='horarios_marcados'),
     path('editar_reserva_barbeiro/<int:reserva_id>/', views.editar_reserva_barbeiro, name='editar_reserva_barbeiro'),  # Para barbeiros
     path('carregar_datas/', views.carregar_datas, name='carregar_datas'),
+    path('login/', CustomLoginView.as_view(), name='login'),
+    path('login_success/', views.login_success, name='login_success'),
+    path('area_cliente/', views.area_cliente, name='area_cliente'),
+    path('minha_conta/', views.minha_conta, name='minha_conta'),
+
     path('cancelar_reserva_barbeiro/<int:reserva_id>/', views.cancelar_reserva_barbeiro, name='cancelar_reserva_barbeiro'),
 ]
 

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Bem-Sucedido</title>
+    <style>
+        body {
+            background-image: url("{% static 'images/background2.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            color: #fff;
+        }
+        .success-container {
+            max-width: 500px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #28a745;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .redirect {
+            color: #f8f9fa;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <h1>Login Bem-Sucedido!</h1>
+        <p>Você será redirecionado para a página de login em breve.</p>
+        <p class="redirect">Se o redirecionamento não funcionar, <a href="{% url 'login' %}" style="color: #007bff;">clique aqui</a>.</p>
+    </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = "{% url 'login' %}";
+        }, 5000); // Redireciona após 5 segundos
+    </script>
+</body>
+</html>

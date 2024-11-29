@@ -92,9 +92,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
+   
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
@@ -129,3 +127,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'area_cliente'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_COOKIE_AGE = None  # Nenhum tempo fixo, expira com o fechamento do navegador
+SESSION_COOKIE_SECURE = False  # Apenas True se estiver usando HTTPS
+SESSION_SAVE_EVERY_REQUEST = False  # Apenas atualiza a sessão quando necessário
+SESSION_COOKIE_AGE = 7200  # 2 horas em segundos
