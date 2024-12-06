@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbearia - Área do Cliente</title>
+    <title>Feedbacks dos Clientes</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
         body {
@@ -17,7 +17,6 @@
             padding: 0;
             color: #fff;
         }
-
         header {
             display: flex;
             justify-content: space-between;
@@ -25,46 +24,43 @@
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.8);
         }
-
         .logo img {
             height: 80px;
         }
-
         nav ul {
             list-style: none;
             display: flex;
             gap: 20px;
         }
-
         nav ul li a {
             color: #fff;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2em;
         }
-
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px #000;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            text-shadow: 1px 1px 3px #000;
-        }
-
-        footer {
-            text-align: center;
+        .feedback-section {
+            margin: 20px auto;
+            max-width: 800px;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+        }
+        .feedback-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .feedback-item strong {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
             margin-top: 20px;
-            color: #fff;
+            color: white;
         }
     </style>
 </head>
@@ -75,22 +71,28 @@
         </div>
         <nav>
             <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'fazer_reserva' %}">Fazer Reserva</a></li>
-                <li><a href="{% url 'feedback_total' %}">Feedbacks</a></li>
                 <li><a href="{% url 'minhas_reservas' %}">Minhas Reservas</a></li>
                 <li><a href="{% url 'minha_conta' %}">Minha Conta</a></li>
                 <li><a href="{% url 'logout' %}">Sair</a></li>
             </ul>
         </nav>
     </header>
-    
-    <main>
-        <section class="hero">
-            <h1>BEM-VINDO À ÁREA DO CLIENTE</h1>
-            <p>Gerencie suas reservas e informações com facilidade!</p>
-        </section>
+    <main class="feedback-section">
+        <h2>Todos os Feedbacks</h2>
+        <div>
+            {% for feedback in feedbacks %}
+                <div class="feedback-item">
+                    <strong>{{ feedback.user.username }}</strong>
+                    <p>{{ feedback.message }}</p>
+                    <small>Enviado em {{ feedback.created_at|date:"d/m/Y H:i" }}</small>
+                </div>
+            {% empty %}
+                <p>Não há feedbacks disponíveis no momento.</p>
+            {% endfor %}
+        </div>
     </main>
-
     <footer>
         <p>&copy; 2024 Barbearia. Todos os direitos reservados.</p>
     </footer>

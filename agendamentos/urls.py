@@ -26,6 +26,14 @@ urlpatterns = [
     path('login_success/', views.login_success, name='login_success'),
     path('area_cliente/', views.area_cliente, name='area_cliente'),
     path('minha_conta/', views.minha_conta, name='minha_conta'),
+    path('feedback/', views.feedback_list, name='feedback_list'),
+    path('feedback/new/', views.give_feedback, name='give_feedback'),
+     path('feedbacks/', views.list_feedbacks, name='feedbacks'),
+    path('feedbacks/delete/<int:feedback_id>/', views.delete_feedback, name='delete_feedback'),
+    path('feedback/total/', views.feedback_total, name='feedback_total'),
+
+
+
 
     path('cancelar_reserva_barbeiro/<int:reserva_id>/', views.cancelar_reserva_barbeiro, name='cancelar_reserva_barbeiro'),
 ]

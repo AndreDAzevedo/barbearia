@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/background.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .logo img {
+            height: 60px; /* Diminuição do tamanho do logo */
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #555;
+        }
+
+        th {
+            background-color: rgba(255, 165, 0, 0.9);
+            color: #000;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .delete-btn {
+            color: #fff;
+            background-color: #e74c3c;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo da Barbearia">
+        </div>
+        <a href="{% url 'area_barbeiro' %}" class="nav-link">Área do Barbeiro</a>
+    </header>
+
+    <main>
+        <h1 style="text-align: center; text-shadow: 2px 2px 5px #000;">Feedbacks</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Usuário</th>
+                    <th>Mensagem</th>
+                    <th>Data</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback in feedbacks %}
+                <tr>
+                    <td>{{ feedback.id }}</td>
+                    <td>{{ feedback.user.username }}</td>
+                    <td>{{ feedback.message }}</td>
+                    <td>{{ feedback.created_at|date:"d/m/Y H:i" }}</td>
+                    <td>
+                        <a href="{% url 'delete_feedback' feedback.id %}" class="delete-btn">Excluir</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">Nenhum feedback encontrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p style="text-align: center;">&copy; 2024 Barbearia. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

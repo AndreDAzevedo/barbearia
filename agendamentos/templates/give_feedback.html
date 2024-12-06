@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks dos Clientes</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/background.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .logo img {
+            height: 80px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .feedback-section {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+        }
+        .feedback-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .feedback-item strong {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            resize: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        textarea::placeholder {
+            color: #ccc;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            margin-top: 20px;
+            color: white;
+        }
+        .messages {
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .messages ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .messages li {
+            color: #0f0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo da Barbearia">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'fazer_reserva' %}">Fazer Reserva</a></li>
+                <li><a href="{% url 'feedback_list' %}">Ver Feedbacks</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Sair</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main class="feedback-section">
+        <h2>Todos os Feedbacks</h2>
+        <div>
+            {% for feedback in feedbacks %}
+                <div class="feedback-item">
+                    <strong>{{ feedback.user.username }}</strong>
+                    <p>{{ feedback.message }}</p>
+                    <small>Enviado em {{ feedback.created_at|date:"d/m/Y H:i" }}</small>
+                </div>
+            {% empty %}
+                <p>Não há feedbacks disponíveis no momento.</p>
+            {% endfor %}
+        </div>
+        <h2>Deixe seu Feedback</h2>
+        <form method="POST" action="{% url 'give_feedback' %}">
+            {% csrf_token %}
+            <textarea name="message" rows="5" placeholder="Escreva seu feedback aqui..." required></textarea>
+            <button type="submit">Enviar Feedback</button>
+        </form>
+        {% if messages %}
+            <div class="messages">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Barbearia. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

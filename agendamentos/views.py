@@ -16,9 +16,13 @@ locale.setlocale(locale.LC_TIME, "pt_BR.utf8")
 from .forms import RegisterForm 
 
 
-# Página inicial
+from django.contrib.auth.decorators import login_required
+
+from .models import Feedback
+
 def home(request):
-    return render(request, 'home.html')
+    feedbacks = Feedback.objects.all().order_by('-created_at')[:3]  # Apenas os 5 mais recentes
+    return render(request, 'home.html', {'feedbacks': feedbacks})
 
 # Registro de usuários
 def register(request):
@@ -313,3 +317,59 @@ def minha_conta(request):
         'user_form': user_form,
         'password_form': password_form,
     })
+
+from .models import Feedback
+from .forms import FeedbackForm
+
+def feedback_list(request):
+    """
+    Exibe a lista de feedbacks públicos.
+    """
+    feedbacks = Feedback.objects.all().order_by('-created_at')
+    return render(request, 'feedback_list.html', {'feedbacks': feedbacks})
+
+@login_required
+def give_feedback(request):
+    """
+    Permite que usuários logados enviem feedbacks.
+    """
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)
+            feedback.user = request.user
+            feedback.save()
+            messages.success(request, 'Seu feedback foi enviado com sucesso!')
+            return redirect('feedback_list')  # Redireciona para a lista de feedbacks
+    else:
+        form = FeedbackForm()
+
+    return render(request, 'give_feedback.html', {'form': form})
+
+
+@login_required
+def list_feedbacks(request):
+    feedbacks = Feedback.objects.all()
+    return render(request, 'feedbacks.html', {'feedbacks': feedbacks})
+
+@login_required
+def delete_feedback(request, feedback_id):
+    feedback = get_object_or_404(Feedback, id=feedback_id)
+    feedback.delete()
+    return redirect('feedbacks')
+
+
+@login_required
+def feedback_total(request):
+    feedbacks = Feedback.objects.all().order_by('-created_at')
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save(commit=False)
+            feedback.user = request.user
+            feedback.save()
+            messages.success(request, 'Seu feedback foi enviado com sucesso!')
+            return redirect('feedback_total')
+    else:
+        form = FeedbackForm()
+    return render(request, 'feedback_total.html', {'form': form, 'feedbacks': feedbacks})

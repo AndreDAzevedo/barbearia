@@ -67,3 +67,14 @@ class UserEditForm(forms.ModelForm):
             'first_name': 'Primeiro Nome',
             'last_name': 'Último Nome',
         }
+
+
+from .models import Feedback
+
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['message']
+        widgets = {
+            'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Deixe seu feedback aqui...'}),
+        }

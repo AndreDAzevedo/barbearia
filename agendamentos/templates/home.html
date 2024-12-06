@@ -2,161 +2,234 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Barbearia - Home</title>
-   <!-- Incluindo os arquivos CSS necessários -->
-   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-   <link rel="stylesheet" href="{% static 'css/index.css' %}">
-   <style>
-       body {
-           background-image: url("{% static 'images/background.png' %}");
-           background-size: cover;
-           background-repeat: no-repeat;
-           background-attachment: fixed;
-           font-family: Arial, sans-serif;
-           margin: 0;
-           padding: 0;
-           color: #fff;
-       }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbearia - Home</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+  <style>
+      body {
+          background-image: url("{% static 'images/background.png' %}");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          color: #fff;
+      }
 
+      header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: rgba(0, 0, 0, 0.8);
+      }
 
-       header {
-           display: flex;
-           justify-content: space-between;
-           align-items: center;
-           padding: 20px;
-           background-color: rgba(0, 0, 0, 0.8);
-       }
+      .logo img {
+          height: 80px;
+      }
 
+      nav ul {
+          list-style: none;
+          display: flex;
+          gap: 20px;
+      }
 
-       .logo img {
-           height: 80px;
-       }
+      nav ul li a {
+          color: #fff;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1.2em;
+      }
 
+      .hero {
+          text-align: center;
+          padding: 100px 20px;
+      }
 
-       nav ul {
-           list-style: none;
-           display: flex;
-           gap: 20px;
-       }
+      .hero-logo img {
+          width: 150px;
+          margin-bottom: 20px;
+      }
 
+      .hero h1 {
+          font-size: 4em;
+          margin-bottom: 20px;
+          text-shadow: 2px 2px 5px #000;
+      }
 
-       nav ul li a {
-           color: #fff;
-           text-decoration: none;
-           font-weight: bold;
-           font-size: 1.2em;
-       }
+      .hero p {
+          font-size: 1.5em;
+          text-shadow: 1px 1px 3px #000;
+      }
 
+      .feedback-section {
+          background-color: rgba(0, 0, 0, 0.9);
+          padding: 20px;
+          border-radius: 10px;
+          margin: 20px auto;
+          width: 80%;
+          color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      }
 
-       .hero {
-           text-align: center;
-           padding: 100px 20px;
-       }
+      .feedback-section h2 {
+          text-align: center;
+          font-size: 2em;
+          color: #f0ad4e;
+          margin-bottom: 20px;
+      }
 
+      .feedback-item {
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 15px;
+          margin-bottom: 15px;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          transition: transform 0.2s, box-shadow 0.2s;
+      }
 
-       .hero-logo img {
-           width: 150px;
-           margin-bottom: 20px;
-       }
+      .feedback-item:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      }
 
+      .feedback-avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5em;
+          font-weight: bold;
+          color: #fff;
+      }
 
-       .hero h1 {
-           font-size: 4em;
-           margin-bottom: 20px;
-           text-shadow: 2px 2px 5px #000;
-       }
+      .feedback-content {
+          flex-grow: 1;
+      }
 
+      .feedback-content strong {
+          font-size: 1.2em;
+          display: block;
+          margin-bottom: 5px;
+          color: #f0ad4e;
+      }
 
-       .hero p {
-           font-size: 1.5em;
-           text-shadow: 1px 1px 3px #000;
-       }
+      .feedback-content p {
+          margin: 0;
+          line-height: 1.5;
+      }
 
+      .feedback-content small {
+          font-size: 0.9em;
+          color: #ccc;
+      }
 
-       .social-icons {
-           display: flex;
-           justify-content: center;
-           gap: 30px;
-           margin: 20px auto 30px; /* Adiciona margem inferior */
-       }
+      .social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          margin: 20px auto 30px;
+      }
 
+      .social-icons img {
+          width: 50px;
+          height: 50px;
+          transition: transform 0.3s;
+          border-radius: 10px;
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 10px;
+      }
 
-       .social-icons a {
-           text-decoration: none;
-       }
+      .social-icons img:hover {
+          transform: scale(1.2);
+          background-color: rgba(255, 255, 255, 0.2);
+      }
 
-
-       .social-icons img {
-           width: 50px; /* Mantém os ícones menores */
-           height: 50px;
-           transition: transform 0.3s;
-           border-radius: 10px;
-           background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
-           padding: 10px;
-       }
-
-
-       .social-icons img:hover {
-           transform: scale(1.2);
-           background-color: rgba(255, 255, 255, 0.2); /* Efeito de destaque */
-       }
-
-
-       footer {
-           text-align: center;
-           padding: 20px;
-           background-color: rgba(0, 0, 0, 0.8);
-           margin-top: 20px; /* Adiciona espaço extra acima do rodapé */
-           color: #fff;
-       }
-   </style>
+      footer {
+          text-align: center;
+          padding: 20px;
+          background-color: rgba(0, 0, 0, 0.8);
+          margin-top: 20px;
+          color: #fff;
+      }
+  </style>
 </head>
 <body>
-   <header>
-       <div class="logo">
-           <img src="{% static 'images/logo.png' %}" alt="Logo da Barbearia">
-       </div>
-       <nav>
-           <ul>
-               <li><a href="{% url 'login' %}">Faça sua Reserva</a></li> <!-- Adicionada a opção -->
-               {% if user.is_authenticated %}
-                   <li><a href="{% url 'fazer_reserva' %}">Agendamento</a></li>
-                   <li><a href="{% url 'minhas_reservas' %}">Minhas Reservas</a></li>
-                   <li><a href="{% url 'logout' %}">Sair</a></li>
-               {% else %}
-                   <li><a href="{% url 'barbeiro_login' %}">Área do Barbeiro</a></li>
-                   <li><a href="{% url 'register' %}">Registrar</a></li>
-                   <li><a href="{% url 'login' %}">Login</a></li>
-               {% endif %}
-           </ul>
-       </nav>
-   </header>
-  
+    <header>
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Logo da Barbearia">
+        </div>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <!-- Mostrar opções para usuários logados -->
+                    <li><a href="{% url 'fazer_reserva' %}">Agendamento</a></li>
+                    <li><a href="{% url 'minhas_reservas' %}">Minhas Reservas</a></li>
+                    <li><a href="{% url 'feedback_total' %}">Feedbacks</a></li>
+                    <li><a href="{% url 'minha_conta' %}">Minha Conta</a></li>
+                    <li><a href="{% url 'logout' %}">Sair</a></li>
+                {% else %}
+                    <!-- Mostrar opções para usuários não logados -->
+                    <li><a href="{% url 'login' %}">Faça sua Reserva</a></li>
+                    <li><a href="{% url 'barbeiro_login' %}">Área do Barbeiro</a></li>
+                    <li><a href="{% url 'register' %}">Registrar</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
    <main>
-       <section class="hero">
-           <div class="hero-logo">
-               <img src="{% static 'images/logo.png' %}" alt="Logo do Coelho">
-           </div>
-           <h1>BEM VINDO AO SALÃO DO COELHO</h1>
-           <p>Cuidados com estilo e excelência para você!</p>
-       </section>
-       <section class="social-icons">
-           <a href="https://www.instagram.com/" target="_blank">
-               <img src="{% static 'images/insta.svg' %}" alt="Instagram">
-           </a>
-           <a href="https://www.whatsapp.com/?lang=pt_BR" target="_blank">
-               <img src="{% static 'images/whats.svg' %}" alt="WhatsApp">
-           </a>
-       </section>
-   </main>
+      <section class="hero">
+          <div class="hero-logo">
+              <img src="{% static 'images/logo.png' %}" alt="Logo do Coelho">
+          </div>
+          <h1>BEM VINDO AO SALÃO DO COELHO</h1>
+          <p>Cuidados com estilo e excelência para você!</p>
+      </section>
 
+      <section class="feedback-section">
+          <h2>Feedbacks dos Clientes</h2>
+          <div>
+              {% for feedback in feedbacks %}
+                  <div class="feedback-item">
+                      <div class="feedback-avatar">
+                          {{ feedback.user.username|slice:":1"|upper }}
+                      </div>
+                      <div class="feedback-content">
+                          <strong>{{ feedback.user.username }}</strong>
+                          <p>{{ feedback.message }}</p>
+                          <small>Enviado em {{ feedback.created_at|date:"d/m/Y H:i" }}</small>
+                      </div>
+                  </div>
+              {% empty %}
+                  <p>Não há feedbacks disponíveis no momento.</p>
+              {% endfor %}
+          </div>
+      </section>
 
-   <footer>
-       <p>&copy; 2024 Barbearia. Todos os direitos reservados.</p>
-   </footer>
-</body>
-</html>
-
-
+      <section class="social-icons">
+          <a href="https://www.instagram.com/" target="_blank">
+              <img src="{% static 'images/insta.svg' %}" alt
+              ="Instagram">
+            </a>
+            <a href="https://www.whatsapp.com/?lang=pt_BR" target="_blank">
+                <img src="{% static 'images/whats.svg' %}" alt="WhatsApp">
+            </a>
+        </section>
+    </main>
+  
+    <footer>
+        <p>&copy; 2024 Barbearia. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+  </html>
+  

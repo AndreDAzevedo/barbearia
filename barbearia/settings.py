@@ -134,3 +134,8 @@ SESSION_COOKIE_AGE = None  # Nenhum tempo fixo, expira com o fechamento do naveg
 SESSION_COOKIE_SECURE = False  # Apenas True se estiver usando HTTPS
 SESSION_SAVE_EVERY_REQUEST = False  # Apenas atualiza a sessão quando necessário
 SESSION_COOKIE_AGE = 7200  # 2 horas em segundos
+DEBUG = True
+
+CACHE_MIDDLEWARE_ALIAS = 'default'
+CACHE_MIDDLEWARE_SECONDS = 0
+CACHE_MIDDLEWARE_KEY_PREFIX = ''
