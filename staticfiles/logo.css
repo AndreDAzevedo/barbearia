@@ -1,0 +1,90 @@
+.logo-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.logologo {
+  width: 2036px;
+  height: 92.5873031616211px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.logo-iconparksolidfulldresslonguette {
+  top: 65px;
+  left: 0px;
+  width: 55px;
+  height: 27.58730125427246px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.logo-svg-i-da {
+  top: 2.2989420890808105px;
+  left: 8.020833015441895px;
+  width: 38.38541793823242px;
+  height: 22.989416122436523px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.logo-group {
+  top: 0px;
+  left: 0px;
+  width: 38.38541793823242px;
+  height: 22.989416122436523px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.logo-vector1 {
+  top: 3.4484126567840576px;
+  left: 0px;
+  width: 38px;
+  height: 20px;
+  position: absolute;
+}
+.logo-vector2 {
+  top: 0px;
+  left: 14.895833969116211px;
+  width: 9px;
+  height: 3px;
+  position: absolute;
+}
+.logo-vector3 {
+  top: 9.770502090454102px;
+  left: 12.604166984558105px;
+  width: 14px;
+  height: 1px;
+  position: absolute;
+}
+.logo-vector4 {
+  top: 8.621031761169434px;
+  left: 12.604166984558105px;
+  width: 14px;
+  height: 2px;
+  position: absolute;
+}
+.logo-text {
+  left: 72px;
+  color: rgba(255, 255, 255, 1);
+  width: 1964px;
+  height: auto;
+  position: absolute;
+  font-size: 96px;
+  font-style: Extra Light;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}

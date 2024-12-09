@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>exported project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./exdashmodal6.css" rel="stylesheet" />
+
+      <div class="exdashmodal6-container">
+        <div class="exdashmodal6exdashmodal6">
+          <img
+            alt="Rectangle11353"
+            src="public/external/rectangle11353-s1k-2000w.png"
+            class="exdashmodal6-rectangle1"
+          />
+          <img
+            alt="ImagemdoWhatsAppde20241030s13311872fd6c3d1353"
+            src="public/external/imagemdowhatsappde20241030s13311872fd6c3d1353-uyg-3500w.png"
+            class="exdashmodal6-imagemdo-whats-appde20241030s13311872fd6c3d"
+          />
+          <img
+            alt="Rectangle2101353"
+            src="public/external/rectangle2101353-41al-800w.png"
+            class="exdashmodal6-rectangle210"
+          />
+          <div class="exdashmodal6-sidebars">
+            <div class="exdashmodal6-dashboard1">
+              <div class="exdashmodal6-dashboard2">
+                <div class="exdashmodal6-group159">
+                  <img
+                    alt="Vector1353"
+                    src="public/external/vector1353-fc4l.svg"
+                    class="exdashmodal6-vector10"
+                  />
+                </div>
+                <span class="exdashmodal6-text10">Painel</span>
+              </div>
+            </div>
+            <div class="exdashmodal6-salesreport">
+              <div class="exdashmodal6-group169">
+                <img
+                  alt="Vector1353"
+                  src="public/external/vector1353-6pp.svg"
+                  class="exdashmodal6-vector11"
+                />
+              </div>
+              <span class="exdashmodal6-text11">Feedback</span>
+            </div>
+            <div class="exdashmodal6-setting">
+              <div class="exdashmodal6-group165">
+                <div class="exdashmodal6-group3">
+                  <img
+                    alt="Vector1353"
+                    src="public/external/vector1353-85am.svg"
+                    class="exdashmodal6-vector12"
+                  />
+                  <img
+                    alt="Vector1353"
+                    src="public/external/vector1353-zr36.svg"
+                    class="exdashmodal6-vector13"
+                  />
+                </div>
+              </div>
+              <span class="exdashmodal6-text12">Configurações</span>
+            </div>
+            <div class="exdashmodal6-history">
+              <div class="exdashmodal6-group167">
+                <img
+                  alt="Vector1353"
+                  src="public/external/vector1353-nzg.svg"
+                  class="exdashmodal6-vector14"
+                />
+              </div>
+              <span class="exdashmodal6-text13">Histórico</span>
+            </div>
+            <img
+              alt="Line1353"
+              src="public/external/line1353-zqin.svg"
+              class="exdashmodal6-line"
+            />
+          </div>
+          <div class="exdashmodal6title">
+            <div class="exdashmodal6-frame2">
+              <div class="exdashmodal6-calendario1">
+                <img
+                  alt="Ellipse21353"
+                  src="public/external/ellipse21353-g59-200h.png"
+                  class="exdashmodal6-ellipse21"
+                />
+                <img
+                  alt="Ellipse41353"
+                  src="public/external/ellipse41353-04a-200h.png"
+                  class="exdashmodal6-ellipse41"
+                />
+                <img
+                  alt="Ellipse61353"
+                  src="public/external/ellipse61353-o2mj-200h.png"
+                  class="exdashmodal6-ellipse61"
+                />
+                <img
+                  alt="Ellipse81353"
+                  src="public/external/ellipse81353-wtnf-200h.png"
+                  class="exdashmodal6-ellipse81"
+                />
+                <img
+                  alt="Ellipse31353"
+                  src="public/external/ellipse31353-2u0p-200h.png"
+                  class="exdashmodal6-ellipse31"
+                />
+                <img
+                  alt="Ellipse51353"
+                  src="public/external/ellipse51353-5ed-200h.png"
+                  class="exdashmodal6-ellipse51"
+                />
+                <img
+                  alt="Ellipse71353"
+                  src="public/external/ellipse71353-siha-200h.png"
+                  class="exdashmodal6-ellipse71"
+                />
+                <img
+                  alt="Ellipse91353"
+                  src="public/external/ellipse91353-aniq-200h.png"
+                  class="exdashmodal6-ellipse91"
+                />
+                <div class="exdashmodal6date1">
+                  <div class="exdashmodal6-numeros1">
+                    <span class="exdashmodal6-text14">10</span>
+                    <span class="exdashmodal6-text15">11</span>
+                    <span class="exdashmodal6-text16">12</span>
+                    <span class="exdashmodal6-text17">13</span>
+                    <span class="exdashmodal6-text18">14</span>
+                    <span class="exdashmodal6-text19">15</span>
+                    <span class="exdashmodal6-text20">16</span>
+                    <span class="exdashmodal6-text21">17</span>
+                    <span class="exdashmodal6-text22">18</span>
+                    <span class="exdashmodal6-text23">19</span>
+                    <span class="exdashmodal6-text24">20</span>
+                    <span class="exdashmodal6-text25">21</span>
+                    <span class="exdashmodal6-text26">22</span>
+                    <span class="exdashmodal6-text27">23</span>
+                    <span class="exdashmodal6-text28">24</span>
+                    <span class="exdashmodal6-text29">25</span>
+                    <span class="exdashmodal6-text30">26</span>
+                    <span class="exdashmodal6-text31">27</span>
+                    <span class="exdashmodal6-text32">28</span>
+                    <span class="exdashmodal6-text33">29</span>
+                    <span class="exdashmodal6-text34">30</span>
+                  </div>
+                  <div class="exdashmodal6-antes1">
+                    <span class="exdashmodal6-text35">31</span>
+                    <span class="exdashmodal6-text36">30</span>
+                  </div>
+                  <div class="exdashmodal6-despues1">
+                    <span class="exdashmodal6-text37">10</span>
+                  </div>
+                </div>
+                <div class="exdashmodal6days1"></div>
+              </div>
+              <div class="exdashmodal6-frame1">
+                <span class="exdashmodal6-text38">Noviembre 2022</span>
+              </div>
+            </div>
+            <div class="exdashmodal6-fechas"></div>
+            <div class="exdashmodal6-group1">
+              <span class="exdashmodal6-text39">Zona horaria</span>
+              <span class="exdashmodal6-text40">
+                Centro A.- Belice, Costa Rica, El Salvador, Guatemala, Hondras,
+                Nicaragua, Panamá
+              </span>
+            </div>
+            <img
+              alt="icons8globe9611354"
+              src="public/external/icons8globe9611354-7iij-200h.png"
+              class="exdashmodal6-icons8globe961"
+            />
+            <span class="exdashmodal6-text41">
+              Selecione uma data e um horário
+            </span>
+          </div>
+          <div class="exdashmodal6header">
+            <div class="exdashmodal6contact">
+              <span class="exdashmodal6-text42">Contato</span>
+            </div>
+            <div class="exdashmodal6-signout">
+              <div class="exdashmodal6-group168">
+                <img
+                  alt="Vector1354"
+                  src="public/external/vector1354-riw2.svg"
+                  class="exdashmodal6-vector15"
+                />
+              </div>
+              <span class="exdashmodal6-text43">Sair</span>
+            </div>
+          </div>
+          <div class="exdashmodal6-frame6">
+            <div class="exdashmodal6-frame5">
+              <div class="exdashmodal6-pessoa4">
+                <div class="exdashmodal6-group2216">
+                  <span class="exdashmodal6-text44">
+                    <span class="exdashmodal6-text45">Juliano Fróis</span>
+                    <br />
+                    <span>Excluído com sucesso!</span>
+                  </span>
+                </div>
+              </div>
+              <div class="exdashmodal6-circle">
+                <img
+                  alt="Ellipse8I135"
+                  src="public/external/ellipse8i135-7pwp-200h.png"
+                  class="exdashmodal6-ellipse82"
+                />
+                <img
+                  alt="Ellipse9I135"
+                  src="public/external/ellipse9i135-z4ne-200h.png"
+                  class="exdashmodal6-ellipse92"
+                />
+                <img
+                  alt="Ellipse10I135"
+                  src="public/external/ellipse10i135-ugn-200h.png"
+                  class="exdashmodal6-ellipse101"
+                />
+                <img
+                  alt="Ellipse11I135"
+                  src="public/external/ellipse11i135-uytb-200h.png"
+                  class="exdashmodal6-ellipse111"
+                />
+              </div>
+              <div class="exdashmodal6-frameiconclose">
+                <img
+                  alt="VectorI135"
+                  src="public/external/vectori135-uyr4.svg"
+                  class="exdashmodal6-vector16"
+                />
+                <div class="exdashmodal6-group4">
+                  <img
+                    alt="VectorI135"
+                    src="public/external/vectori135-0xo.svg"
+                    class="exdashmodal6-vector17"
+                  />
+                  <img
+                    alt="VectorI135"
+                    src="public/external/vectori135-tgdh.svg"
+                    class="exdashmodal6-vector18"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exdashmodal6-calendario2">
+            <div class="exdashmodal6calendarionumbers">
+              <div class="exdashmodal6-calendario3">
+                <img
+                  alt="Ellipse21354"
+                  src="public/external/ellipse21354-8yej-200w.png"
+                  class="exdashmodal6-ellipse22"
+                />
+                <img
+                  alt="Ellipse101354"
+                  src="public/external/ellipse101354-976r-200h.png"
+                  class="exdashmodal6-ellipse102"
+                />
+                <img
+                  alt="Ellipse41354"
+                  src="public/external/ellipse41354-gzo3-200h.png"
+                  class="exdashmodal6-ellipse42"
+                />
+                <img
+                  alt="Ellipse61354"
+                  src="public/external/ellipse61354-opt-200h.png"
+                  class="exdashmodal6-ellipse62"
+                />
+                <img
+                  alt="Ellipse81354"
+                  src="public/external/ellipse81354-23eg-200w.png"
+                  class="exdashmodal6-ellipse83"
+                />
+                <img
+                  alt="Ellipse31354"
+                  src="public/external/ellipse31354-cgug-200w.png"
+                  class="exdashmodal6-ellipse32"
+                />
+                <img
+                  alt="Ellipse51354"
+                  src="public/external/ellipse51354-1dg-200h.png"
+                  class="exdashmodal6-ellipse52"
+                />
+                <img
+                  alt="Ellipse111354"
+                  src="public/external/ellipse111354-1ueg-200h.png"
+                  class="exdashmodal6-ellipse112"
+                />
+                <img
+                  alt="Ellipse71354"
+                  src="public/external/ellipse71354-40p-200h.png"
+                  class="exdashmodal6-ellipse72"
+                />
+                <img
+                  alt="Ellipse91354"
+                  src="public/external/ellipse91354-ci2k-200w.png"
+                  class="exdashmodal6-ellipse93"
+                />
+                <div class="exdashmodal6date2">
+                  <div class="exdashmodal6-numeros2">
+                    <span class="exdashmodal6-text48">10</span>
+                    <span class="exdashmodal6-text49">11</span>
+                    <span class="exdashmodal6-text50">12</span>
+                    <span class="exdashmodal6-text51">13</span>
+                    <span class="exdashmodal6-text52">14</span>
+                    <span class="exdashmodal6-text53">15</span>
+                    <span class="exdashmodal6-text54">16</span>
+                    <span class="exdashmodal6-text55">17</span>
+                    <span class="exdashmodal6-text56">18</span>
+                    <span class="exdashmodal6-text57">19</span>
+                    <span class="exdashmodal6-text58">20</span>
+                    <span class="exdashmodal6-text59">21</span>
+                    <span class="exdashmodal6-text60">22</span>
+                    <span class="exdashmodal6-text61">23</span>
+                    <span class="exdashmodal6-text62">24</span>
+                    <span class="exdashmodal6-text63">25</span>
+                    <span class="exdashmodal6-text64">26</span>
+                    <span class="exdashmodal6-text65">27</span>
+                    <span class="exdashmodal6-text66">28</span>
+                    <span class="exdashmodal6-text67">29</span>
+                    <span class="exdashmodal6-text68">30</span>
+                  </div>
+                  <div class="exdashmodal6-antes2">
+                    <span class="exdashmodal6-text69">31</span>
+                    <span class="exdashmodal6-text70">30</span>
+                  </div>
+                  <div class="exdashmodal6-despues2">
+                    <span class="exdashmodal6-text71">10</span>
+                  </div>
+                </div>
+                <div class="exdashmodal6borderdays1"></div>
+                <div class="exdashmodal6days2">
+                  <span class="exdashmodal6-text72">QU</span>
+                </div>
+                <div class="exdashmodal6setas">
+                  <img
+                    alt="Adelante1355"
+                    src="public/external/adelante1355-ck9.svg"
+                    class="exdashmodal6-adelante"
+                  />
+                  <img
+                    alt="Atras1355"
+                    src="public/external/atras1355-ntw8.svg"
+                    class="exdashmodal6-atras"
+                  />
+                </div>
+              </div>
+              <div class="exdashmodal6-component2">
+                <div class="exdashmodal6-group2">
+                  <span class="exdashmodal6-text73">Mês</span>
+                  <div class="exdashmodal6-vuesaxlineararrowdown1">
+                    <div class="exdashmodal6-vuesaxlineararrowdown2">
+                      <div class="exdashmodal6-arrowdown">
+                        <img
+                          alt="VectorI135"
+                          src="public/external/vectori135-nnrf.svg"
+                          class="exdashmodal6-vector19"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  alt="Rectangle3I135"
+                  src="public/external/rectangle3i135-zg78-400w.png"
+                  class="exdashmodal6-rectangle3"
+                />
+                <img
+                  alt="Rectangle13I135"
+                  src="public/external/rectangle13i135-y24l-400w.png"
+                  class="exdashmodal6-rectangle13"
+                />
+                <img
+                  alt="Rectangle12I135"
+                  src="public/external/rectangle12i135-2c48-300w.png"
+                  class="exdashmodal6-rectangle12"
+                />
+                <img
+                  alt="Rectangle15I135"
+                  src="public/external/rectangle15i135-2gp-300w.png"
+                  class="exdashmodal6-rectangle15"
+                />
+                <img
+                  alt="Rectangle17I135"
+                  src="public/external/rectangle17i135-jugw-300w.png"
+                  class="exdashmodal6-rectangle17"
+                />
+                <img
+                  alt="Rectangle11I135"
+                  src="public/external/rectangle11i135-0njm-200h.png"
+                  class="exdashmodal6-rectangle11"
+                />
+                <img
+                  alt="Rectangle14I135"
+                  src="public/external/rectangle14i135-dz3c-200h.png"
+                  class="exdashmodal6-rectangle14"
+                />
+                <img
+                  alt="Rectangle16I135"
+                  src="public/external/rectangle16i135-bz7-200h.png"
+                  class="exdashmodal6-rectangle16"
+                />
+              </div>
+            </div>
+            <button class="exdashmodal6buttonagendar">
+              <span class="exdashmodal6-text74">EXCLUIR</span>
+            </button>
+            <div class="exdashmodal6-mas"></div>
+            <div class="exdashmodal6-legenda">
+              <div class="exdashmodal6-fechado">
+                <span class="exdashmodal6-text75">fechado</span>
+                <img
+                  alt="Ellipse271355"
+                  src="public/external/ellipse271355-gykc-200h.png"
+                  class="exdashmodal6-ellipse271"
+                />
+              </div>
+              <div class="exdashmodal6-disponivel">
+                <span class="exdashmodal6-text76">disponível</span>
+                <img
+                  alt="Ellipse271355"
+                  src="public/external/ellipse271355-qywh-200h.png"
+                  class="exdashmodal6-ellipse272"
+                />
+              </div>
+              <div class="exdashmodal6-esgotado">
+                <span class="exdashmodal6-text77">esgotado</span>
+                <img
+                  alt="Ellipse271355"
+                  src="public/external/ellipse271355-fx3-200h.png"
+                  class="exdashmodal6-ellipse273"
+                />
+              </div>
+            </div>
+            <div class="exdashmodal6agendados">
+              <span class="exdashmodal6-text78">Lista de Agendados</span>
+              <div class="exdashmodal6-homedecoresection">
+                <div class="exdashmodal6borderdays2"></div>
+                <div class="exdashmodal6borderdays3"></div>
+                <div class="exdashmodal6-heading">
+                  <span class="exdashmodal6-text79">Nome</span>
+                  <span class="exdashmodal6-text80">Serviço</span>
+                  <span class="exdashmodal6-text81">Horário</span>
+                  <img
+                    alt="Line181355"
+                    src="public/external/line181355-4gbu.svg"
+                    class="exdashmodal6-line18"
+                  />
+                </div>
+                <div class="exdashmodal6-pessoa1">
+                  <img
+                    alt="Line191355"
+                    src="public/external/line191355-yha.svg"
+                    class="exdashmodal6-line191"
+                  />
+                  <span class="exdashmodal6-text82">Home Decore Range</span>
+                  <span class="exdashmodal6-text83">Corte</span>
+                  <span class="exdashmodal6-text84">10:45 hs</span>
+                  <span class="exdashmodal6-text85">01</span>
+                </div>
+                <div class="exdashmodal6-pessoa2">
+                  <img
+                    alt="Line191355"
+                    src="public/external/line191355-z2jp.svg"
+                    class="exdashmodal6-line192"
+                  />
+                  <span class="exdashmodal6-text86">Juliano Frois</span>
+                  <span class="exdashmodal6-text87">Barba</span>
+                  <span class="exdashmodal6-text88">11:45 hs</span>
+                  <span class="exdashmodal6-text89">02</span>
+                </div>
+                <div class="exdashmodal6-pessoa31">
+                  <img
+                    alt="Line191355"
+                    src="public/external/line191355-si9.svg"
+                    class="exdashmodal6-line193"
+                  />
+                  <span class="exdashmodal6-text90">Home Decore Range</span>
+                  <span class="exdashmodal6-text91">Barba</span>
+                  <span class="exdashmodal6-text92">12:00 hs</span>
+                  <span class="exdashmodal6-text93">03</span>
+                </div>
+              </div>
+            </div>
+            <div class="exdashmodal6-pessoa32">
+              <img
+                alt="Line191355"
+                src="public/external/line191355-s9md.svg"
+                class="exdashmodal6-line194"
+              />
+              <span class="exdashmodal6-text94">Juliano Fróis</span>
+              <span class="exdashmodal6-text95">Barba e sobrancelha</span>
+              <span class="exdashmodal6-text96">12:00 hs</span>
+              <span class="exdashmodal6-text97">18</span>
+            </div>
+          </div>
+          <img
+            alt="download1previewrev111357"
+            src="public/external/download1previewrev111357-93-200h.png"
+            class="exdashmodal6-download1previewrev11"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

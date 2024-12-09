@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>exported project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;  -webkit-font-smoothing: antialiased;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;  color: inherit;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./exdashmodal61.css" rel="stylesheet" />
+
+      <div class="exdashmodal61-container">
+        <div class="exdashmodal61exdashmodal6">
+          <img
+            src="https://play.teleporthq.io/static/svg/default-img.svg"
+            alt="Rectangle11353"
+            class="exdashmodal61-rectangle1"
+          />
+          <img
+            src="https://play.teleporthq.io/static/svg/default-img.svg"
+            alt="ImagemdoWhatsAppde20241030s13311872fd6c3d1353"
+            class="exdashmodal61-imagemdo-whats-appde20241030s13311872fd6c3d"
+          />
+          <img
+            src="https://play.teleporthq.io/static/svg/default-img.svg"
+            alt="Rectangle2101353"
+            class="exdashmodal61-rectangle210"
+          />
+          <div class="exdashmodal61-sidebars">
+            <div class="exdashmodal61-dashboard1">
+              <div class="exdashmodal61-dashboard2">
+                <div class="exdashmodal61-group159">
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Vector1353"
+                    class="exdashmodal61-vector10"
+                  />
+                </div>
+                <span class="exdashmodal61-text10">Painel</span>
+              </div>
+            </div>
+            <div class="exdashmodal61-salesreport">
+              <div class="exdashmodal61-group169">
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Vector1353"
+                  class="exdashmodal61-vector11"
+                />
+              </div>
+              <span class="exdashmodal61-text11">Feedback</span>
+            </div>
+            <div class="exdashmodal61-setting">
+              <div class="exdashmodal61-group165">
+                <div class="exdashmodal61-group3">
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Vector1353"
+                    class="exdashmodal61-vector12"
+                  />
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Vector1353"
+                    class="exdashmodal61-vector13"
+                  />
+                </div>
+              </div>
+              <span class="exdashmodal61-text12">Configurações</span>
+            </div>
+            <div class="exdashmodal61-history">
+              <div class="exdashmodal61-group167">
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Vector1353"
+                  class="exdashmodal61-vector14"
+                />
+              </div>
+              <span class="exdashmodal61-text13">Histórico</span>
+            </div>
+            <img
+              src="https://play.teleporthq.io/static/svg/default-img.svg"
+              alt="Line1353"
+              class="exdashmodal61-line"
+            />
+          </div>
+          <div class="exdashmodal61title">
+            <div class="exdashmodal61-frame2">
+              <div class="exdashmodal61-calendario1">
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse21353"
+                  class="exdashmodal61-ellipse21"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse41353"
+                  class="exdashmodal61-ellipse41"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse61353"
+                  class="exdashmodal61-ellipse61"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse81353"
+                  class="exdashmodal61-ellipse81"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse31353"
+                  class="exdashmodal61-ellipse31"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse51353"
+                  class="exdashmodal61-ellipse51"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse71353"
+                  class="exdashmodal61-ellipse71"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse91353"
+                  class="exdashmodal61-ellipse91"
+                />
+                <div class="exdashmodal61date1">
+                  <div class="exdashmodal61-numeros1">
+                    <span class="exdashmodal61-text14">10</span>
+                    <span class="exdashmodal61-text15">11</span>
+                    <span class="exdashmodal61-text16">12</span>
+                    <span class="exdashmodal61-text17">13</span>
+                    <span class="exdashmodal61-text18">14</span>
+                    <span class="exdashmodal61-text19">15</span>
+                    <span class="exdashmodal61-text20">16</span>
+                    <span class="exdashmodal61-text21">17</span>
+                    <span class="exdashmodal61-text22">18</span>
+                    <span class="exdashmodal61-text23">19</span>
+                    <span class="exdashmodal61-text24">20</span>
+                    <span class="exdashmodal61-text25">21</span>
+                    <span class="exdashmodal61-text26">22</span>
+                    <span class="exdashmodal61-text27">23</span>
+                    <span class="exdashmodal61-text28">24</span>
+                    <span class="exdashmodal61-text29">25</span>
+                    <span class="exdashmodal61-text30">26</span>
+                    <span class="exdashmodal61-text31">27</span>
+                    <span class="exdashmodal61-text32">28</span>
+                    <span class="exdashmodal61-text33">29</span>
+                    <span class="exdashmodal61-text34">30</span>
+                  </div>
+                  <div class="exdashmodal61-antes1">
+                    <span class="exdashmodal61-text35">31</span>
+                    <span class="exdashmodal61-text36">30</span>
+                  </div>
+                  <div class="exdashmodal61-despues1">
+                    <span class="exdashmodal61-text37">10</span>
+                  </div>
+                </div>
+                <div class="exdashmodal61days1"></div>
+              </div>
+              <div class="exdashmodal61-frame1">
+                <span class="exdashmodal61-text38">Noviembre 2022</span>
+              </div>
+            </div>
+            <div class="exdashmodal61-fechas"></div>
+            <div class="exdashmodal61-group1">
+              <span class="exdashmodal61-text39">Zona horaria</span>
+              <span class="exdashmodal61-text40">
+                Centro A.- Belice, Costa Rica, El Salvador, Guatemala, Hondras,
+                Nicaragua, Panamá
+              </span>
+            </div>
+            <img
+              src="https://play.teleporthq.io/static/svg/default-img.svg"
+              alt="icons8globe9611354"
+              class="exdashmodal61-icons8globe961"
+            />
+            <span class="exdashmodal61-text41">
+              Selecione uma data e um horário
+            </span>
+          </div>
+          <div class="exdashmodal61header">
+            <div class="exdashmodal61contact">
+              <span class="exdashmodal61-text42">Contato</span>
+            </div>
+            <div class="exdashmodal61-signout">
+              <div class="exdashmodal61-group168">
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Vector1354"
+                  class="exdashmodal61-vector15"
+                />
+              </div>
+              <span class="exdashmodal61-text43">Sair</span>
+            </div>
+          </div>
+          <div class="exdashmodal61-frame6">
+            <div class="exdashmodal61-frame5">
+              <div class="exdashmodal61-pessoa4">
+                <div class="exdashmodal61-group2216">
+                  <span class="exdashmodal61-text44">
+                    <span class="exdashmodal61-text45">Juliano Fróis</span>
+                    <br />
+                    <span>Excluído com sucesso!</span>
+                  </span>
+                </div>
+              </div>
+              <div class="exdashmodal61-circle">
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse8I135"
+                  class="exdashmodal61-ellipse82"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse9I135"
+                  class="exdashmodal61-ellipse92"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse10I135"
+                  class="exdashmodal61-ellipse101"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse11I135"
+                  class="exdashmodal61-ellipse111"
+                />
+              </div>
+              <div class="exdashmodal61-frameiconclose">
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="VectorI135"
+                  class="exdashmodal61-vector16"
+                />
+                <div class="exdashmodal61-group4">
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="VectorI135"
+                    class="exdashmodal61-vector17"
+                  />
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="VectorI135"
+                    class="exdashmodal61-vector18"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="exdashmodal61-calendario2">
+            <div class="exdashmodal61calendarionumbers">
+              <div class="exdashmodal61-calendario3">
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse21354"
+                  class="exdashmodal61-ellipse22"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse101354"
+                  class="exdashmodal61-ellipse102"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse41354"
+                  class="exdashmodal61-ellipse42"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse61354"
+                  class="exdashmodal61-ellipse62"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse81354"
+                  class="exdashmodal61-ellipse83"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse31354"
+                  class="exdashmodal61-ellipse32"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse51354"
+                  class="exdashmodal61-ellipse52"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse111354"
+                  class="exdashmodal61-ellipse112"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse71354"
+                  class="exdashmodal61-ellipse72"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse91354"
+                  class="exdashmodal61-ellipse93"
+                />
+                <div class="exdashmodal61date2">
+                  <div class="exdashmodal61-numeros2">
+                    <span class="exdashmodal61-text48">10</span>
+                    <span class="exdashmodal61-text49">11</span>
+                    <span class="exdashmodal61-text50">12</span>
+                    <span class="exdashmodal61-text51">13</span>
+                    <span class="exdashmodal61-text52">14</span>
+                    <span class="exdashmodal61-text53">15</span>
+                    <span class="exdashmodal61-text54">16</span>
+                    <span class="exdashmodal61-text55">17</span>
+                    <span class="exdashmodal61-text56">18</span>
+                    <span class="exdashmodal61-text57">19</span>
+                    <span class="exdashmodal61-text58">20</span>
+                    <span class="exdashmodal61-text59">21</span>
+                    <span class="exdashmodal61-text60">22</span>
+                    <span class="exdashmodal61-text61">23</span>
+                    <span class="exdashmodal61-text62">24</span>
+                    <span class="exdashmodal61-text63">25</span>
+                    <span class="exdashmodal61-text64">26</span>
+                    <span class="exdashmodal61-text65">27</span>
+                    <span class="exdashmodal61-text66">28</span>
+                    <span class="exdashmodal61-text67">29</span>
+                    <span class="exdashmodal61-text68">30</span>
+                  </div>
+                  <div class="exdashmodal61-antes2">
+                    <span class="exdashmodal61-text69">31</span>
+                    <span class="exdashmodal61-text70">30</span>
+                  </div>
+                  <div class="exdashmodal61-despues2">
+                    <span class="exdashmodal61-text71">10</span>
+                  </div>
+                </div>
+                <div class="exdashmodal61borderdays1"></div>
+                <div class="exdashmodal61days2">
+                  <span class="exdashmodal61-text72">QU</span>
+                </div>
+                <div class="exdashmodal61setas">
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Adelante1355"
+                    class="exdashmodal61-adelante"
+                  />
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Atras1355"
+                    class="exdashmodal61-atras"
+                  />
+                </div>
+              </div>
+              <div class="exdashmodal61-component2">
+                <div class="exdashmodal61-group2">
+                  <span class="exdashmodal61-text73">Mês</span>
+                  <div class="exdashmodal61-vuesaxlineararrowdown1">
+                    <div class="exdashmodal61-vuesaxlineararrowdown2">
+                      <div class="exdashmodal61-arrowdown">
+                        <img
+                          src="https://play.teleporthq.io/static/svg/default-img.svg"
+                          alt="VectorI135"
+                          class="exdashmodal61-vector19"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Rectangle3I135"
+                  class="exdashmodal61-rectangle3"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Rectangle13I135"
+                  class="exdashmodal61-rectangle13"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Rectangle12I135"
+                  class="exdashmodal61-rectangle12"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Rectangle15I135"
+                  class="exdashmodal61-rectangle15"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Rectangle17I135"
+                  class="exdashmodal61-rectangle17"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Rectangle11I135"
+                  class="exdashmodal61-rectangle11"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Rectangle14I135"
+                  class="exdashmodal61-rectangle14"
+                />
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Rectangle16I135"
+                  class="exdashmodal61-rectangle16"
+                />
+              </div>
+            </div>
+            <button class="exdashmodal61buttonagendar">
+              <span class="exdashmodal61-text74">EXCLUIR</span>
+            </button>
+            <div class="exdashmodal61-mas"></div>
+            <div class="exdashmodal61-legenda">
+              <div class="exdashmodal61-fechado">
+                <span class="exdashmodal61-text75">fechado</span>
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse271355"
+                  class="exdashmodal61-ellipse271"
+                />
+              </div>
+              <div class="exdashmodal61-disponivel">
+                <span class="exdashmodal61-text76">disponível</span>
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse271355"
+                  class="exdashmodal61-ellipse272"
+                />
+              </div>
+              <div class="exdashmodal61-esgotado">
+                <span class="exdashmodal61-text77">esgotado</span>
+                <img
+                  src="https://play.teleporthq.io/static/svg/default-img.svg"
+                  alt="Ellipse271355"
+                  class="exdashmodal61-ellipse273"
+                />
+              </div>
+            </div>
+            <div class="exdashmodal61agendados">
+              <span class="exdashmodal61-text78">Lista de Agendados</span>
+              <div class="exdashmodal61-homedecoresection">
+                <div class="exdashmodal61borderdays2"></div>
+                <div class="exdashmodal61borderdays3"></div>
+                <div class="exdashmodal61-heading">
+                  <span class="exdashmodal61-text79">Nome</span>
+                  <span class="exdashmodal61-text80">Serviço</span>
+                  <span class="exdashmodal61-text81">Horário</span>
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Line181355"
+                    class="exdashmodal61-line18"
+                  />
+                </div>
+                <div class="exdashmodal61-pessoa1">
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Line191355"
+                    class="exdashmodal61-line191"
+                  />
+                  <span class="exdashmodal61-text82">Home Decore Range</span>
+                  <span class="exdashmodal61-text83">Corte</span>
+                  <span class="exdashmodal61-text84">10:45 hs</span>
+                  <span class="exdashmodal61-text85">01</span>
+                </div>
+                <div class="exdashmodal61-pessoa2">
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Line191355"
+                    class="exdashmodal61-line192"
+                  />
+                  <span class="exdashmodal61-text86">Juliano Frois</span>
+                  <span class="exdashmodal61-text87">Barba</span>
+                  <span class="exdashmodal61-text88">11:45 hs</span>
+                  <span class="exdashmodal61-text89">02</span>
+                </div>
+                <div class="exdashmodal61-pessoa31">
+                  <img
+                    src="https://play.teleporthq.io/static/svg/default-img.svg"
+                    alt="Line191355"
+                    class="exdashmodal61-line193"
+                  />
+                  <span class="exdashmodal61-text90">Home Decore Range</span>
+                  <span class="exdashmodal61-text91">Barba</span>
+                  <span class="exdashmodal61-text92">12:00 hs</span>
+                  <span class="exdashmodal61-text93">03</span>
+                </div>
+              </div>
+            </div>
+            <div class="exdashmodal61-pessoa32">
+              <img
+                src="https://play.teleporthq.io/static/svg/default-img.svg"
+                alt="Line191355"
+                class="exdashmodal61-line194"
+              />
+              <span class="exdashmodal61-text94">Juliano Fróis</span>
+              <span class="exdashmodal61-text95">Barba e sobrancelha</span>
+              <span class="exdashmodal61-text96">12:00 hs</span>
+              <span class="exdashmodal61-text97">18</span>
+            </div>
+          </div>
+          <img
+            src="https://play.teleporthq.io/static/svg/default-img.svg"
+            alt="download1previewrev111357"
+            class="exdashmodal61-download1previewrev11"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

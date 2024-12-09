@@ -1,0 +1,206 @@
+.sidebars-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.sidebars-sidebars {
+  width: 363.2825622558594px;
+  height: 711px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.sidebars-dashboard1 {
+  top: 68.29666137695312px;
+  left: 47.8681640625px;
+  width: 315.4143981933594px;
+  height: 99.09453582763672px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(255, 255, 255, 0.10000000149011612);
+}
+.sidebars-dashboard2 {
+  gap: 24.4718074798584px;
+  top: 27.52621078491211px;
+  left: 40.78662109375px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  border-radius: 4.824191093444824px;
+}
+.sidebars-group159 {
+  width: 38px;
+  height: 38.06725311279297px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.sidebars-vector1 {
+  top: 2.719038248062134px;
+  left: 2.7188665866851807px;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+}
+.sidebars-text1 {
+  color: rgba(255, 255, 255, 1);
+  width: 173px;
+  height: auto;
+  font-size: 32.62907409667969px;
+  font-style: Semi Bold;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.sidebars-salesreport {
+  gap: 24.4718074798584px;
+  top: 244.23269653320312px;
+  left: 75.05908203125px;
+  width: 261.0325927734375px;
+  height: 41.289390563964844px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+}
+.sidebars-group169 {
+  width: 38px;
+  height: 38.06725311279297px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(135, 136, 140, 1);
+}
+.sidebars-vector2 {
+  top: 2.7191131114959717px;
+  left: 2.7192070484161377px;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+}
+.sidebars-text2 {
+  color: rgba(135, 136, 140, 1);
+  height: auto;
+  font-size: 32.62907409667969px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.sidebars-setting {
+  gap: 24.4718074798584px;
+  top: 362.2327575683594px;
+  left: 75.05908203125px;
+  width: 193.05535888671875px;
+  height: 41.289390563964844px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+}
+.sidebars-group165 {
+  width: 38px;
+  height: 38.06725311279297px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(135, 136, 140, 1);
+}
+.sidebars-group {
+  top: 2.7190732955932617px;
+  left: 2.7192070484161377px;
+  width: 32.62907409667969px;
+  height: 32.62907409667969px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.sidebars-vector3 {
+  top: 0px;
+  left: 0px;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+}
+.sidebars-vector4 {
+  top: 10.417654037475586px;
+  left: 10.60565185546875px;
+  width: 11px;
+  height: 12px;
+  position: absolute;
+}
+.sidebars-text3 {
+  color: rgba(135, 136, 140, 1);
+  height: auto;
+  font-size: 32.62907409667969px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.sidebars-history {
+  gap: 24.4718074798584px;
+  top: 488.46539306640625px;
+  left: 75.05908203125px;
+  width: 176.74082946777344px;
+  height: 41.289390563964844px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-shrink: 0;
+}
+.sidebars-group167 {
+  width: 38px;
+  height: 38.06725311279297px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 1;
+  background-color: rgba(135, 136, 140, 1);
+}
+.sidebars-vector5 {
+  top: 2.7190895080566406px;
+  left: 2.7192070484161377px;
+  width: 33px;
+  height: 33px;
+  position: absolute;
+}
+.sidebars-text4 {
+  color: rgba(135, 136, 140, 1);
+  height: auto;
+  font-size: 32.62907409667969px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.sidebars-line {
+  top: 711px;
+  left: 0px;
+  width: 711px;
+  height: 1px;
+  position: absolute;
+  box-shadow: 140px 233px 76px 0px rgba(0, 0, 0, 0.009999999776482582) ;
+}
