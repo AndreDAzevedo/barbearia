@@ -195,27 +195,7 @@
           <h1>BEM VINDO AO SALÃO DO COELHO</h1>
           <p>Cuidados com estilo e excelência para você!</p>
       </section>
-<!--
-      <section class="feedback-section">
-          <h2>Feedbacks dos Clientes</h2>
-          <div>
-              {% for feedback in feedbacks %}
-                  <div class="feedback-item">
-                      <div class="feedback-avatar">
-                          {{ feedback.user.username|slice:":1"|upper }}
-                      </div>
-                      <div class="feedback-content">
-                          <strong>{{ feedback.user.username }}</strong>
-                          <p>{{ feedback.message }}</p>
-                          <small>Enviado em {{ feedback.created_at|date:"d/m/Y H:i" }}</small>
-                      </div>
-                  </div>
-              {% empty %}
-                  <p>Não há feedbacks disponíveis no momento.</p>
-              {% endfor %}
-          </div>
-      </section>
--->
+
       <section class="social-icons">
           <a href="https://www.instagram.com/" target="_blank">
               <img src="{% static 'images/insta.svg' %}" alt
