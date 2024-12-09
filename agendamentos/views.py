@@ -12,7 +12,14 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from datetime import date, timedelta
 import locale
-locale.setlocale(locale.LC_TIME, "pt_BR.utf8")
+import os
+import locale
+
+try:
+    locale.setlocale(locale.LC_TIME, "pt_BR.utf8")
+except locale.Error:
+    locale.setlocale(locale.LC_TIME, "C")
+
 from .forms import RegisterForm 
 
 
