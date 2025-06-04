@@ -36,5 +36,7 @@ urlpatterns = [
 
 
     path('cancelar_reserva_barbeiro/<int:reserva_id>/', views.cancelar_reserva_barbeiro, name='cancelar_reserva_barbeiro'),
+    path('politica-seguranca/', views.politica_seguranca, name='politica_seguranca'),
+    path('politica-privacidade/', views.politica_privacidade, name='politica_privacidade'),
 ]
 

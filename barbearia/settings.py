@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-$9h-tlj%=m&rp%tl@u-bo3d$!+i%3*^3mj_87kqme=-uoov3=$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['barbearia-andre-a95ac35427eb.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['barbearia-andre-a95ac35427eb.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -37,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'agendamentos'
+    'agendamentos',
+    'sslserver',  # Adicionado para suporte SSL
+    'django_extensions',  # Adicionado para suporte SSL alternativo
+    'crispy_forms',  # Para formulários mais bonitos
+    'crispy_bootstrap5',  # Template Bootstrap 5 para crispy-forms
 ]
 
 MIDDLEWARE = [
@@ -49,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'agendamentos.middleware.HTTPSMiddleware',  # Adiciona o middleware personalizado
 ]
 
 ROOT_URLCONF = 'barbearia.urls'
@@ -56,7 +62,7 @@ ROOT_URLCONF = 'barbearia.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,12 +136,25 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'area_cliente'
 
+# Configurações de Segurança
+SECURE_SSL_REDIRECT = True  # Habilita redirecionamento automático para HTTPS
+SECURE_HSTS_SECONDS = 0  # Desabilita HSTS para permitir HTTP nas páginas de política
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SESSION_COOKIE_SECURE = True  # Habilita cookies seguros para HTTPS
+CSRF_COOKIE_SECURE = True  # Habilita cookies CSRF seguros para HTTPS
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = True
+
+# Configurações de Sessão
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_COOKIE_AGE = None  # Nenhum tempo fixo, expira com o fechamento do navegador
-SESSION_COOKIE_SECURE = False  # Apenas True se estiver usando HTTPS
-SESSION_SAVE_EVERY_REQUEST = False  # Apenas atualiza a sessão quando necessário
 SESSION_COOKIE_AGE = 7200  # 2 horas em segundos
-DEBUG = True
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 
 CACHE_MIDDLEWARE_ALIAS = 'default'
 CACHE_MIDDLEWARE_SECONDS = 0
@@ -143,6 +162,11 @@ CACHE_MIDDLEWARE_KEY_PREFIX = ''
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Lista de URLs que não precisam de HTTPS
+NON_HTTPS_URLS = [
+    '/politica-seguranca/',
+    '/politica-privacidade/',
+]
 
 import dj_database_url
 
@@ -151,3 +175,7 @@ DATABASES = {
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"  # Fallback para SQLite local
     )
 }
+
+# Configurações do Crispy Forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"

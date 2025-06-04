@@ -14,6 +14,25 @@ from datetime import date, timedelta
 import locale
 import os
 import locale
+from django.views.decorators.csrf import ensure_csrf_cookie
+from functools import wraps
+from django.conf import settings
+
+# Decorador personalizado para forçar HTTPS
+def require_https(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.is_secure() and not settings.DEBUG:
+            url = request.build_absolute_uri(request.get_full_path())
+            secure_url = url.replace('http://', 'https://')
+            return redirect(secure_url, permanent=True)
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
+# Em desenvolvimento, não forçamos HTTPS
+if settings.DEBUG:
+    def require_https(view_func):
+        return view_func
 
 try:
     locale.setlocale(locale.LC_TIME, "pt_BR.utf8")
@@ -32,6 +51,8 @@ def home(request):
     return render(request, 'home.html', {'feedbacks': feedbacks})
 
 # Registro de usuários
+@require_https
+@ensure_csrf_cookie
 def register(request):
     """
     View para registrar um novo usuário.
@@ -53,6 +74,8 @@ def register(request):
 
 from django.contrib.auth.views import LoginView
 
+@require_https
+@ensure_csrf_cookie
 class CustomLoginView(LoginView):
     """
     View personalizada para login que verifica e remove a mensagem de sucesso da sessão.
@@ -67,7 +90,9 @@ class CustomLoginView(LoginView):
 
 
 # Fazer reserva
+@require_https
 @login_required
+@ensure_csrf_cookie
 def fazer_reserva(request):
     today = date.today()
     dates = [today + timedelta(days=i) for i in range(30)]  # Exemplo: 30 dias
@@ -138,7 +163,9 @@ def custom_login(request):
             messages.error(request, 'Credenciais inválidas. Tente novamente.')
     return render(request, 'login.html')
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def minhas_reservas(request):
     reservas = Reserva.objects.filter(usuario=request.user)
 
@@ -151,7 +178,9 @@ def minhas_reservas(request):
 
     return render(request, 'minhas_reservas.html', {'reservas': reservas})
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def editar_reserva(request, reserva_id):
     reserva = get_object_or_404(Reserva, id=reserva_id, usuario=request.user)
     if request.method == 'POST':
@@ -172,6 +201,8 @@ def logout_view(request):
     logout(request)
     return redirect('home')  # Redireciona para a página inicial após o logout
 
+@require_https
+@ensure_csrf_cookie
 def barbeiro_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -188,16 +219,22 @@ def barbeiro_login(request):
             messages.error(request, 'Usuário ou senha inválidos.')
     return render(request, 'barbeiro_login.html')
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def area_barbeiro(request):
     return render(request, 'area_barbeiro.html')
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def horarios_marcados(request):
     reservas = Reserva.objects.all().order_by('data', 'horario')
     return render(request, 'horarios_marcados.html', {'reservas': reservas})
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def editar_reserva_barbeiro(request, reserva_id):
     reserva = Reserva.objects.get(pk=reserva_id)
     if request.method == 'POST':
@@ -210,7 +247,9 @@ def editar_reserva_barbeiro(request, reserva_id):
         form = ReservaForm(instance=reserva)
     return render(request, 'editar_reserva_barbeiro.html', {'form': form, 'reserva': reserva})
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def cancelar_reserva_barbeiro(request, reserva_id):
     reserva = Reserva.objects.get(pk=reserva_id)
     if request.method == 'POST':
@@ -226,7 +265,9 @@ def custom_logout(request):
 from django.http import JsonResponse
 from datetime import date, timedelta
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def carregar_datas(request):
     year = int(request.GET.get("year"))
     month = int(request.GET.get("month"))
@@ -261,7 +302,9 @@ def login_success(request):
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def area_cliente(request):
     """
     View para a área do cliente.
@@ -274,7 +317,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def minha_conta(request):
     if request.method == 'POST':
         form = UserChangeForm(request.POST, instance=request.user)
@@ -296,7 +341,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserEditForm
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def minha_conta(request):
     user_form = UserEditForm(instance=request.user)
     password_form = PasswordChangeForm(user=request.user)
@@ -335,7 +382,9 @@ def feedback_list(request):
     feedbacks = Feedback.objects.all().order_by('-created_at')
     return render(request, 'feedback_list.html', {'feedbacks': feedbacks})
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def give_feedback(request):
     """
     Permite que usuários logados enviem feedbacks.
@@ -354,19 +403,25 @@ def give_feedback(request):
     return render(request, 'give_feedback.html', {'form': form})
 
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def list_feedbacks(request):
     feedbacks = Feedback.objects.all()
     return render(request, 'feedbacks.html', {'feedbacks': feedbacks})
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def delete_feedback(request, feedback_id):
     feedback = get_object_or_404(Feedback, id=feedback_id)
     feedback.delete()
     return redirect('feedbacks')
 
 
+@require_https
 @login_required
+@ensure_csrf_cookie
 def feedback_total(request):
     feedbacks = Feedback.objects.all().order_by('-created_at')
     if request.method == 'POST':
@@ -380,3 +435,15 @@ def feedback_total(request):
     else:
         form = FeedbackForm()
     return render(request, 'feedback_total.html', {'form': form, 'feedbacks': feedbacks})
+
+def politica_seguranca(request):
+    """
+    View para exibir a política de segurança do site.
+    """
+    return render(request, 'politica_seguranca.html')
+
+def politica_privacidade(request):
+    """
+    View para exibir a política de privacidade do site.
+    """
+    return render(request, 'politica_privacidade.html')
