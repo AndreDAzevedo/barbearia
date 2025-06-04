@@ -137,7 +137,7 @@ LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'area_cliente'
 
 # Configurações de Segurança
-SECURE_SSL_REDIRECT = True  # Habilita redirecionamento automático para HTTPS
+SECURE_SSL_REDIRECT = False  # Desabilita redirecionamento automático para HTTPS
 SECURE_HSTS_SECONDS = 0  # Desabilita HSTS para permitir HTTP nas páginas de política
 SECURE_HSTS_INCLUDE_SUBDOMAINS = False
 SECURE_HSTS_PRELOAD = False
