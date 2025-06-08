@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Barbearia{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/background.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a, nav ul li button {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        nav ul li button:hover,
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 40px 20px;
+            min-height: 70vh;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #bbb;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="Logo da Barbearia">
+    </div>
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+                {% if user.username == 'gestor' %}
+                    <li><a href="{% url 'area_gestor' %}">Área do Gestor</a></li>
+                {% elif user.is_superuser %}
+                    <li><a href="{% url 'horarios_marcados' %}">Horários</a></li>
+                    <li><a href="{% url 'feedbacks' %}">Feedbacks</a></li>
+                {% else %}
+                    <li><a href="{% url 'fazer_reserva' %}">Reservar</a></li>
+                    <li><a href="{% url 'minhas_reservas' %}">Minhas Reservas</a></li>
+                    <li><a href="{% url 'give_feedback' %}">Dar Feedback</a></li>
+                {% endif %}
+                <li>
+                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                </li>
+            {% else %}
+                <li><a href="{% url 'home' %}">Início</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <p>© 2025 Barbearia. Todos os direitos reservados | Design por Coelho</p>
+    <p>
+        <a href="{% url 'politica_seguranca' %}">Política de Segurança</a> |
+        <a href="{% url 'politica_privacidade' %}">Política de Privacidade</a>
+    </p>
+</footer>
+</body>
+</html>

@@ -182,20 +182,37 @@ def minhas_reservas(request):
 @login_required
 @ensure_csrf_cookie
 def editar_reserva(request, reserva_id):
-    reserva = get_object_or_404(Reserva, id=reserva_id, usuario=request.user)
+    reserva = get_object_or_404(Reserva, id=reserva_id)
+
+    # Apenas o gestor ou o próprio cliente pode editar
+    if request.user != reserva.usuario and request.user.username != 'gestor':
+        messages.error(request, 'Você não tem permissão para editar essa reserva.')
+        return redirect('minhas_reservas')
+
     if request.method == 'POST':
         form = ReservaForm(request.POST, instance=reserva)
         if form.is_valid():
             form.save()
             messages.success(request, 'Reserva atualizada com sucesso!')
-            return redirect('minhas_reservas')
+            if request.user.username == 'gestor':
+                return redirect('area_gestor')
+            else:
+                return redirect('minhas_reservas')
     else:
         form = ReservaForm(instance=reserva)
-    return render(request, 'editar_reserva.html', {'form': form})
+
+    barbeiros = User.objects.filter(is_superuser=True).exclude(username='gestor')
+    return render(request, 'editar_reserva.html', {
+        'form': form,
+        'reserva': reserva,
+        'barbeiros': barbeiros
+    })
+
 
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 
+@require_https
 def logout_view(request):
     """Faz o logout do usuário e redireciona para a página inicial."""
     logout(request)
@@ -213,11 +230,15 @@ def barbeiro_login(request):
 
         if user is not None and user.is_superuser:
             login(request, user)
-            return redirect('area_barbeiro')
+            if user.username == 'gestor':
+                return redirect('area_gestor')
+            else:
+                return redirect('area_barbeiro')
         else:
             messages.error(request, 'Usuário ou senha inválidos.')
-    
+
     return render(request, 'barbeiro_login.html')
+
 @require_https
 @login_required
 @ensure_csrf_cookie
@@ -228,7 +249,17 @@ def area_barbeiro(request):
 @login_required
 @ensure_csrf_cookie
 def horarios_marcados(request):
-    reservas = Reserva.objects.all().order_by('data', 'horario')
+    if request.user.is_superuser and request.user.username != 'gestor':
+        # barbeiro comum: vê apenas suas reservas
+        reservas = Reserva.objects.filter(barbeiro=request.user).order_by('data', 'horario')
+    elif request.user.username == 'gestor':
+        # gestor já tem a área dele, então redirecionamos
+        return redirect('area_gestor')
+    else:
+        # cliente não deve acessar
+        messages.error(request, 'Acesso não autorizado.')
+        return redirect('home')
+
     return render(request, 'horarios_marcados.html', {'reservas': reservas})
 
 @require_https
@@ -291,6 +322,7 @@ def carregar_datas(request):
     })
 
 from django.shortcuts import render
+
 
 def login_success(request):
     """
@@ -446,3 +478,183 @@ def politica_privacidade(request):
     View para exibir a política de privacidade do site.
     """
     return render(request, 'politica_privacidade.html')
+
+
+from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .models import Reserva
+
+def eh_superusuario(user):
+    return user.is_superuser
+
+@require_https
+@user_passes_test(eh_superusuario)
+def area_gestor(request):
+    barbeiros = User.objects.filter(is_superuser=True)
+    reservas = Reserva.objects.all().select_related('barbeiro')
+    return render(request, 'area_gestor.html', {'barbeiros': barbeiros, 'reservas': reservas})
+
+
+from django.contrib.auth.models import User
+from django.shortcuts import redirect, get_object_or_404
+
+@require_https
+@user_passes_test(eh_superusuario)
+def criar_barbeiro(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+        if username and senha:
+            User.objects.create_user(username=username, password=senha, is_superuser=True)
+            return redirect('area_gestor')
+    return render(request, 'criar_barbeiro.html')
+
+
+@require_https
+@user_passes_test(eh_superusuario)
+def deletar_barbeiro(request, user_id):
+    barbeiro = get_object_or_404(User, id=user_id, is_superuser=True)
+    if barbeiro.username != 'gestor':  # Protege o gestor principal
+        barbeiro.delete()
+    return redirect('area_gestor')
+
+from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render
+from django.contrib.auth.models import User
+from .models import Reserva
+
+def eh_superusuario(user):
+    return user.is_superuser
+
+@user_passes_test(eh_superusuario)
+def area_gestor(request):
+    barbeiros = User.objects.filter(is_superuser=True)
+    reservas = Reserva.objects.all().select_related('barbeiro')
+    return render(request, 'area_gestor.html', {
+        'barbeiros': barbeiros,
+        'reservas': reservas
+    })
+
+def eh_gestor(user):
+    return user.is_authenticated and user.is_superuser
+
+from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.models import User
+from .models import Reserva
+
+from .models import Reserva, Feedback
+
+@user_passes_test(eh_gestor)
+def area_gestor(request):
+    barbeiros = User.objects.filter(is_superuser=True).exclude(username='gestor')
+    clientes = User.objects.filter(is_superuser=False)
+    reservas = Reserva.objects.all().select_related('barbeiro', 'usuario')
+    feedbacks = Feedback.objects.select_related('user').order_by('-created_at')
+
+    return render(request, 'area_gestor.html', {
+        'barbeiros': barbeiros,
+        'clientes': clientes,
+        'reservas': reservas,
+        'feedbacks': feedbacks,
+    })
+
+
+@user_passes_test(eh_gestor)
+def criar_barbeiro(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+        if username and senha:
+            User.objects.create_user(username=username, password=senha, is_superuser=True)
+            return redirect('area_gestor')
+    return render(request, 'criar_barbeiro.html')
+
+@user_passes_test(eh_gestor)
+def deletar_barbeiro(request, user_id):
+    barbeiro = get_object_or_404(User, id=user_id, is_superuser=True)
+    if barbeiro.username != 'gestor':  # impede deletar o próprio gestor
+        barbeiro.delete()
+    return redirect('area_gestor')
+
+@user_passes_test(eh_gestor)
+def editar_reserva(request, reserva_id):
+    reserva = get_object_or_404(Reserva, id=reserva_id)
+    barbeiros = User.objects.filter(is_superuser=True).exclude(username='gestor')
+
+    if request.method == 'POST':
+        form = ReservaForm(request.POST, instance=reserva)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reserva atualizada com sucesso!')
+            return redirect('area_gestor')
+    else:
+        form = ReservaForm(instance=reserva)
+
+    return render(request, 'editar_reserva.html', {
+        'form': form,
+        'reserva': reserva,
+        'barbeiros': barbeiros,
+    })
+
+
+from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def redirecionar_usuario(request):
+    if request.user.username == 'gestor':
+        return redirect('area_gestor')
+    elif request.user.is_superuser:
+        return redirect('area_barbeiro')
+    else:
+        return redirect('area_cliente')
+
+from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.models import User
+
+@user_passes_test(eh_gestor)
+def editar_usuario(request, user_id):
+    usuario = get_object_or_404(User, id=user_id)
+    if request.method == 'POST':
+        form = UserChangeForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Usuário atualizado com sucesso!')
+            return redirect('area_gestor')
+    else:
+        form = UserChangeForm(instance=usuario)
+    return render(request, 'editar_usuario.html', {'form': form, 'usuario': usuario})
+
+
+@user_passes_test(eh_gestor)
+def deletar_cliente(request, user_id):
+    usuario = get_object_or_404(User, id=user_id, is_superuser=False)
+    usuario.delete()
+    return redirect('area_gestor')
+
+@require_https
+@login_required
+@ensure_csrf_cookie
+def editar_reserva_cliente(request, reserva_id):
+    reserva = get_object_or_404(Reserva, id=reserva_id)
+
+    if request.user != reserva.usuario:
+        messages.error(request, 'Você não tem permissão para editar essa reserva.')
+        return redirect('minhas_reservas')
+
+    if request.method == 'POST':
+        form = ReservaForm(request.POST, instance=reserva)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reserva atualizada com sucesso!')
+            return redirect('minhas_reservas')
+    else:
+        form = ReservaForm(instance=reserva)
+
+    return render(request, 'editar_reserva.html', {
+        'form': form,
+        'reserva': reserva,
+        'barbeiros': None,  # pode esconder esse campo no template se quiser
+    })

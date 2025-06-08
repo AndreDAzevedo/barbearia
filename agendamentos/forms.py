@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Reserva
+from .models import Reserva, Feedback
 
 
 class RegisterForm(UserCreationForm):
@@ -23,34 +23,43 @@ class RegisterForm(UserCreationForm):
             'password2': forms.PasswordInput(attrs={'class': 'form-control'}),
         }
         help_texts = {
-            'username': None,  # Remove o texto de ajuda padrão do campo username
-            'password1': None,  # Remove o texto de ajuda padrão do campo password1
-            'password2': None,  # Remove o texto de ajuda padrão do campo password2
+            'username': None,
+            'password1': None,
+            'password2': None,
         }
 
 
 class ReservaForm(forms.ModelForm):
     """
-    Formulário para gerenciamento de reservas de serviços.
+    Formulário para gerenciamento de reservas de serviços, incluindo escolha do barbeiro.
+    Barbeiros exibidos: superusuários que não são staff (ou seja, exclui o gestor).
     """
+
     class Meta:
         model = Reserva
-        fields = ['servico', 'data', 'horario']
+        fields = ['servico', 'data', 'horario', 'barbeiro']
         widgets = {
+            'servico': forms.Select(attrs={'class': 'form-control'}),
             'data': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
             'horario': forms.TimeInput(attrs={'type': 'time', 'class': 'form-control'}),
-            'servico': forms.Select(attrs={'class': 'form-control'}),
+            'barbeiro': forms.Select(attrs={'class': 'form-control'}),
         }
         labels = {
             'servico': 'Serviço',
             'data': 'Data',
             'horario': 'Horário',
+            'barbeiro': 'Barbeiro',
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Exibir apenas superusuários que não são staff (ou seja, barbeiros reais)
+        self.fields['barbeiro'].queryset = User.objects.filter(is_superuser=True, is_staff=False)
 
 
 class UserEditForm(forms.ModelForm):
     """
-    Formulário personalizado para permitir que os usuários editem informações relevantes da conta.
+    Formulário personalizado para permitir que os usuários editem informações da conta.
     """
     class Meta:
         model = User
@@ -69,12 +78,15 @@ class UserEditForm(forms.ModelForm):
         }
 
 
-from .models import Feedback
-
 class FeedbackForm(forms.ModelForm):
+    """
+    Formulário para envio de feedback.
+    """
     class Meta:
         model = Feedback
         fields = ['message']
         widgets = {
             'message': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Deixe seu feedback aqui...'}),
         }
+
+

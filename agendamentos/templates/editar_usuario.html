@@ -3,62 +3,73 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Reserva</title>
+    <title>Editar Usuário - {{ user_edit.username }}</title>
     <style>
         body {
             background-image: url("{% static 'images/background2.png' %}");
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            margin: 0;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             color: #fff;
         }
+
         .container {
             max-width: 600px;
-            margin: 50px auto;
+            margin: 60px auto;
             background-color: rgba(0, 0, 0, 0.85);
             border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
+
         h1 {
             text-align: center;
             color: #ffc107;
             margin-bottom: 25px;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
+
         label {
             font-weight: bold;
-            margin-bottom: 5px;
+            display: block;
+            margin-bottom: 6px;
         }
-        select, input, textarea {
+
+        input, select, textarea {
+            width: 100%;
             padding: 10px;
+            margin-bottom: 15px;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
             background-color: #333;
             color: #fff;
         }
-        form button {
-            background-color: #28a745;
-            border: none;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            align-self: center;
-            font-size: 1em;
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 5px #ffc107;
         }
-        form button:hover {
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
             background-color: #218838;
         }
-        a {
+
+        a.voltar {
             color: #ffc107;
             text-decoration: none;
             display: block;
@@ -66,25 +77,24 @@
             margin-top: 20px;
             font-weight: bold;
         }
-        a:hover {
+
+        a.voltar:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Editar Reserva</h1>
+        <h1>Editar Usuário - {{ user_edit.username }}</h1>
+
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Salvar Alterações</button>
+
+            <button class="btn" type="submit">Salvar Alterações</button>
         </form>
 
-        {% if request.user.username == "gestor" %}
-            <a href="{% url 'area_gestor' %}">Voltar</a>
-        {% else %}
-            <a href="{% url 'minhas_reservas' %}">Voltar</a>
-        {% endif %}
+        <a class="voltar" href="{% url 'area_gestor' %}">Voltar</a>
     </div>
 </body>
 </html>

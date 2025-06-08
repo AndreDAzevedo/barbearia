@@ -83,7 +83,7 @@
                             <input type="hidden" name="reserva_id" value="{{ reserva.id }}">
                             <button type="submit" name="cancelar_reserva">Cancelar</button>
                         </form>
-                        <a href="{% url 'editar_reserva' reserva.id %}">Editar</a>
+                        <a href="{% url 'editar_reserva_cliente' reserva.id %}">Editar</a>
                     </li>
                 {% endfor %}
             </ul>

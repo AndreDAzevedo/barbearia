@@ -20,13 +20,27 @@
             margin: 50px auto;
             background-color: rgba(0, 0, 0, 0.8);
             border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
         }
         h1 {
             text-align: center;
             color: #ffc107;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        select, input, textarea {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        select {
+            background-color: #333;
+            color: #fff;
         }
         form {
             display: flex;
@@ -37,10 +51,11 @@
             background-color: #28a745;
             border: none;
             color: white;
-            padding: 10px 15px;
+            padding: 12px 20px;
             border-radius: 5px;
             cursor: pointer;
             align-self: center;
+            font-size: 1em;
         }
         form button:hover {
             background-color: #218838;
@@ -51,6 +66,7 @@
             display: block;
             text-align: center;
             margin-top: 20px;
+            font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
@@ -63,8 +79,21 @@
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
+
+            {% if barbeiros %}
+            <label for="barbeiro">Barbeiro:</label>
+            <select name="barbeiro" id="barbeiro" required>
+                {% for b in barbeiros %}
+                    <option value="{{ b.id }}" {% if reserva.barbeiro.id == b.id %}selected{% endif %}>
+                        {{ b.username }}
+                    </option>
+                {% endfor %}
+            </select>
+            {% endif %}
+
             <button type="submit">Salvar alterações</button>
         </form>
+
         <a href="{% url 'horarios_marcados' %}">Voltar para horários marcados</a>
     </div>
 </body>

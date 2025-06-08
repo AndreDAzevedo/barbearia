@@ -143,17 +143,20 @@
             <img src="{% static 'images/logo.png' %}" alt="Logo Barbearia">
             <h1>Agendamento</h1>
         </div>
+
         <div class="controls">
             <button id="prev-month">&lt; Mês Anterior</button>
             <h2 id="current-month-year"></h2>
             <button id="next-month">Próximo Mês &gt;</button>
         </div>
+
         <div class="calendar">
             <!-- Dias do calendário gerados dinamicamente -->
         </div>
+
         <form method="post" class="form" id="reservation-form">
             {% csrf_token %}
-            <!-- Exibe mensagens de erro, se existirem -->
+
             {% if form.errors %}
                 <div class="error-messages">
                     <ul>
@@ -165,20 +168,21 @@
                     </ul>
                 </div>
             {% endif %}
+
             <input type="hidden" id="selected-date" name="data">
-            <label for="service">Selecione o Serviço:</label>
-            <select id="service" name="servico" required>
-                <option value="" disabled selected>Escolha um serviço</option>
-                <option value="Cabelo">Cabelo</option>
-                <option value="Barba">Barba</option>
-                <option value="Cabelo e Barba">Cabelo e Barba</option>
-            </select>
-            <label for="time">Selecione o Horário:</label>
-            <select id="time" name="horario" required>
-                <option value="" disabled selected>Escolha um horário</option>
-            </select>
+
+            <label for="barbeiro">Selecione o Barbeiro:</label>
+            {{ form.barbeiro }}
+
+            <label for="servico">Selecione o Serviço:</label>
+            {{ form.servico }}
+
+            <label for="horario">Selecione o Horário:</label>
+            {{ form.horario }}
+
             <button type="submit">Confirmar Reserva</button>
         </form>
+
         <div class="back-button">
             <a href="{% url 'area_cliente' %}">Voltar para Área do Cliente</a>
         </div>
@@ -191,8 +195,7 @@
             const prevMonth = document.getElementById("prev-month");
             const nextMonth = document.getElementById("next-month");
             const selectedDateInput = document.getElementById("selected-date");
-            const timeSelect = document.getElementById("time");
-            const form = document.getElementById("reservation-form");
+            const timeSelect = document.getElementById("id_horario");
 
             let currentDate = new Date();
 
@@ -201,7 +204,7 @@
                 "2024-11-22": ["09:00", "16:00"]
             };
 
-            const availableTimes = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00","17:00","18:00"];
+            const availableTimes = ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
 
             const updateCalendar = () => {
                 calendar.innerHTML = "";
