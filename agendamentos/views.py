@@ -208,17 +208,16 @@ def barbeiro_login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        # Credenciais específicas do barbeiro
-        if username == 'aluno' and password == 'engenhariaweb':
-            # Crie um usuário fictício para autenticação
-            from django.contrib.auth.models import User
-            user, created = User.objects.get_or_create(username='barbeiro')
-            login(request, user)  # Loga o usuário fictício
+        # Usa o sistema de autenticação do Django
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None and user.is_superuser:
+            login(request, user)
             return redirect('area_barbeiro')
         else:
             messages.error(request, 'Usuário ou senha inválidos.')
+    
     return render(request, 'barbeiro_login.html')
-
 @require_https
 @login_required
 @ensure_csrf_cookie
