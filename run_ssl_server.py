@@ -16,7 +16,7 @@ class Command(RunserverCommand):
                 'Certificate files not found. Please generate them first.'))
             sys.exit(1)
 
-        options['addrport'] = '127.0.0.1:8000'
+        options['addrport'] = '0.0.0.0:8000'
         super().handle(*args, **options)
 
     def inner_run(self, *args, **options):
