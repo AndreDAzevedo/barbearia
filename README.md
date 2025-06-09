@@ -90,7 +90,17 @@ python manage.py runserver
 
 # Servidor com SSL (HTTPS)
 python manage.py runserver_plus --cert-file certificates/barbearia.crt --key-file certificates/barbearia.key
+``` 
+#### 4.2 Acessar a aplicação
+```bash
+ docker-compose up -d
 ```
+```bash
+python manage.py runserver_plus --cert-file certificates/barbearia.crt --key-file certificates/barbearia.key
+```
+- Observação: Utilizar o endereço https://localhost:8443/
+- Importante: Rodar os comandos em terminais diferentes
+
 
 ### 5. Páginas e Protocolos
 
@@ -122,7 +132,15 @@ O projeto utiliza:
 - Sessão expira ao fechar o navegador
 - Proteção CSRF habilitada
 
-### 9. Observações Importantes
+### 9. Acesso e Controle de Usuários
+- Para o gerenciamento e controle de usuários do tipo "Barbeiro" é necessário utilizar um o Super Usuário da aplicação.
+- Importante: Utilizar o nome "gestor" para o username do usuário. 
+```bash
+python manage.py createsuperuser
+```
+
+
+### 10. Observações Importantes
 1. Em produção, use certificados emitidos por uma Autoridade Certificadora confiável
 2. Mantenha suas chaves privadas seguras
 3. Configure o servidor web (Apache/Nginx) para redirecionar automaticamente as páginas sensíveis para HTTPS
